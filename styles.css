@@ -987,3 +987,66 @@ input {
 .filler2.active {
     margin-bottom: -99vh;
 }
+
+/* PLACEHOLDER  */
+.placeholder {
+    position: relative;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--light);
+    z-index: 100; /* Ensure it's above other elements */
+}
+
+.placeholder .svg-container {
+    display: flex;
+    gap: 1vw;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.svg-plus, .svg-asterisk {
+    width: 5vw;
+    height: 5vw;
+    display: inline-block;
+    vertical-align: middle;
+    transform-origin: center;
+    will-change: transform;
+    transition: transform 0.1s linear;
+}
+
+.placeholder .svg-container .svg-plus:nth-child(1) svg {
+    fill: currentColor;
+    color: var(--primary);
+}
+
+.placeholder .svg-container .svg-asterisk:nth-child(2) svg {
+    fill: currentColor;
+    color: var(--secondary);
+}
+
+.placeholder .svg-container .svg-asterisk:nth-child(3) svg {
+    fill: currentColor;
+    color: var(--tertiary);
+}
+
+.placeholder h3 {
+    margin-top: 2rem;
+    font-size: 1rem;
+    font-family: var(--font-title2);
+    color: var(--dark);
+    white-space: nowrap;
+}
+
+@media screen and (min-width: 768px) {
+    .placeholder {
+        display: flex;
+    }
+    .container {
+        display: none;
+    }
+}
