@@ -785,12 +785,54 @@ input {
     font-weight: 100;
 }
 
+.slider{
+    margin-top: 2rem;
+    width: 100%;
+    height: var(--height);
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 10% 90%,
+        transparent
+    );
+}
+
+.slider .list{
+    display: flex;
+    width: 100%;
+    min-width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+
+.slider .list .item{
+    width: var(--width);
+    height: var(--height);
+    font-family: var(--font-title2);
+    font-weight: 100;
+    position: absolute;
+    left: 100%;
+    animation: autoRun 10s linear infinite;
+    transition: filter 0.5s;
+    animation-delay: calc( (10s / var(--quantity)) * (var(--position) - 1) - 10s)!important;
+}
+
+@keyframes autoRun{
+    from{
+        left: 100%;
+    }
+    
+    to{
+        left: calc(var(--width) * -1);
+    }
+}
+
 .section.seven .photo-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    margin-top: 5rem;
+    margin-top: 2rem;
     transform: rotate(-8deg);
 }
 
@@ -840,7 +882,6 @@ input {
     margin-top: 6rem;
 }
 
-
 /* PANEL TRAPING */
 .sticky-container {
     height: 300vh;
@@ -867,10 +908,11 @@ input {
     left: 0;
     width: 100%;
     height: 100%;
+    padding: 2rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-size: 3em;
+    align-content: center;
     transform: translateY(100%);
     /* transition: transform 0.6s ease-in-out; */
     z-index: 1;
@@ -896,9 +938,65 @@ input {
     z-index: 4;
 }
 
+.panel-title .photo img {
+    width: 100%;
+    height: 11rem;
+    border-radius: 25px 25px 25px 0px;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.panel-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-title h3 {
+    font-family: var(--font-title2);
+    color: var(--light);
+    font-weight: 100;
+    text-align: left;
+    line-height: 0.8;
+    white-space: nowrap;
+    font-size: 3.5rem;
+}
+
+.panel-title p {
+    margin-top: 2rem;
+    font-family: var(--font-paragraph);
+    color: var(--light);
+    font-size: 0.86rem;
+    line-height: 1.19rem;
+}
+
 .panel-1 {
     background: var(--primary);
     border-radius: 25px 25px 0 0;
+}
+
+.panel .photo-container {
+    margin-top: 1.2em;
+    margin-bottom: 4rem;
+}
+
+.panel-1 .panel-title .photo-bg {
+    position: relative;
+    width: 100%;
+    height: 13rem;
+    border-radius: 25px 25px 25px 0px;
+    overflow: hidden;
+}
+
+.panel-1 .panel-title .photo-bg:nth-child(1) {
+    background: var(--tertiary);
+    margin-bottom: -14rem;
+}
+
+.panel-1 .panel-title .photo-bg:nth-child(2) {
+    background: var(--secondary);
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
 }
 
 .panel-2 {
@@ -906,9 +1004,53 @@ input {
     border-radius: 25px 25px 0 0;
 }
 
+.panel-2 .panel-title .photo-bg {
+    position: relative;
+    width: 100%;
+    height: 13rem;
+    border-radius: 25px 25px 25px 0px;
+    overflow: hidden;
+}
+
+.panel-2 .panel-title .photo-bg:nth-child(1) {
+    background: var(--tertiary);
+    margin-bottom: -14rem;
+}
+
+.panel-2 .panel-title .photo-bg:nth-child(2) {
+    background: var(--primary);
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
 .panel-3 {
     background: var(--tertiary);
     border-radius: 25px 25px 0 0;
+}
+
+.panel-3 .photo-container {
+    margin-bottom: 6rem;
+}
+
+.panel-3 .panel-title .photo-bg {
+    position: relative;
+    width: 100%;
+    height: 13rem;
+    border-radius: 25px 25px 25px 0px;
+    overflow: hidden;
+}
+
+.panel-3 .panel-title .photo-bg:nth-child(1) {
+    background: var(--secondary);
+    margin-bottom: -14rem;
+}
+
+.panel-3 .panel-title .photo-bg:nth-child(2) {
+    background: var(--primary);
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
 }
 
 /* Initial hidden state for elements */
@@ -1009,7 +1151,7 @@ input {
     align-content: center;
 }
 
-.svg-plus, .svg-asterisk {
+.placeholder .svg-plus, .placeholder .svg-asterisk {
     width: 5vw;
     height: 5vw;
     display: inline-block;
