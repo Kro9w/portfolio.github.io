@@ -131,85 +131,82 @@
     border-radius: 5px;
 }
 
-/* SECTION ONE*/
+/* SECTION ONE */
 .section.one {
     position: relative;
-    z-index: 5;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -2px;
 }
 
 .section.one .section-title {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     font-size: 45vw;
     font-family: var(--font-title);
     color: var(--dark);
-    text-align: center;
-    line-height: 1;
     white-space: nowrap;
-    margin-top: -6vw;
+    align-items: center;
 }
 
 .section.one .section-title span {
+    line-height: 0.7;
     display: block;
-    margin-bottom: -15vw;
 }
 
 .section.one .section-title span:nth-child(3) {
-    display: block;
     font-size: 35.4vw;
-    margin-top: 1vw;
-    margin-bottom: -13.5vw;
-}
-
-.section.one .section-title span:nth-child(5) {
-    margin-bottom: -40vw;
 }
 
 .section.one .section-title .name {
-    display: block;
     font-family: var(--font-title3);
     font-size: 10vw;
     font-weight: 100;
+    margin-top: 2vh;
+    width: auto;
 }
 
 .section.one .highlight {
     font-family: var(--font-title3);
     font-size: 42vw;
     margin-left: -5vw;
+    vertical-align: baseline;
 }
 
 .section.one .svg-container {
     display: flex;
     gap: 1vw;
-    margin-top: 60vw;
     justify-content: center;
     align-items: center;
-    align-content: center;
+    position: relative;
+    margin-top: 9vh;
+    width: 100%;
 }
 
 .svg-plus, .svg-asterisk {
     width: 10vw;
     height: 10vw;
-    display: inline-block;
-    vertical-align: middle;
     transform-origin: center;
     will-change: transform;
     transition: transform 0.1s linear;
+    flex-shrink: 0;
 }
 
 .section.one .svg-container .svg-plus:nth-child(1) svg {
+    display: block;
     fill: currentColor;
     color: var(--primary);
 }
 
 .section.one .svg-container .svg-asterisk:nth-child(2) svg {
+    display: block;
     fill: currentColor;
     color: var(--secondary);
 }
 
 .section.one .svg-container .svg-asterisk:nth-child(3) svg {
+    display: block;
     fill: currentColor;
     color: var(--tertiary);
 }
@@ -217,7 +214,7 @@
 /*SECTION TWO*/
 .section.two {
     position: relative;
-    z-index: 5;
+    z-index: 6;
     border-radius: 0 0 25px 25px;
     background: var(--light);
     overflow: hidden;
@@ -273,10 +270,12 @@
 .section.three {
     display: flex;
     position: relative;
+    z-index: 2;
     align-items: center;
     justify-content: center;
     align-content: center;
     overflow: hidden;
+    margin-bottom: -20px;
 }
 
 .section.three .section-title {
@@ -633,17 +632,17 @@ input {
 
 #slide3 .front a .github-icon {
     fill: var(--light);
-    z-index: 3;
+    z-index: 4;
 }
 
 #slide3 .front a .github-icon2 {
     fill: var(--primary);
-    z-index: 2;
+    z-index: 3;
 }
 
 #slide3 .front a .github-icon3 {
     fill: var(--secondary);
-    z-index: 1;
+    z-index: 2;
 }
 
 #s3:checked ~ .cards #slide3 .front a:nth-child(1) .github-icon {
@@ -724,6 +723,8 @@ input {
 /* Section Four */
 .section.four {
     overflow: hidden;
+    position: relative;
+    z-index: 2;
 }
 
 .section.four .section-title {
@@ -818,6 +819,9 @@ input {
 /* SECTION FIVE */
 .section.five {
     overflow: hidden;
+    position: relative;
+    z-index: 3;
+    height: 200vh;
 }
 
 .section.five .section-title {
@@ -849,8 +853,9 @@ input {
 .section.five .services {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    height: 100%;
 }
 
 .section.five .text-box {
@@ -861,7 +866,13 @@ input {
     width: 17rem;
     height: 10rem;
     gap: 0.7rem;
-    margin-bottom: -2rem;
+    /* margin-bottom: -2rem; */
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.section.five .text-box.active {
+    transform: scale(1.1); /* Slightly larger size */
 }
 
 .section.five .services h3 {
@@ -900,7 +911,7 @@ input {
 /* SECTION SIX */
 .section.six {
     position: relative;
-    z-index: 5;
+    z-index: 6;
     border-radius: 0 0 25px 25px;
     overflow: hidden;
     margin-bottom: -40px;
@@ -981,10 +992,12 @@ input {
 /* SECTION SEVEN */
 .section.seven {
     position: relative;
+    z-index: 2;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .section.seven .section-title {
@@ -1064,8 +1077,8 @@ input {
 }
 
 .section.seven .photo-container img {
-    width: 14rem;
-    height: 15rem;
+    width: 28.7vh;
+    height: 29vh;
     border-radius: 25px 25px 25px 0px;
     object-fit: cover;
     filter: grayscale(100%);
@@ -1082,8 +1095,8 @@ input {
 
 .section.seven .photo-bg {
     position: relative;
-    width: 15rem;
-    height: 18rem;
+    width: 31vh;
+    height: 34vh;
     border-radius: 25px 25px 25px 0px;
     overflow: hidden;
 }
@@ -1093,11 +1106,11 @@ input {
 }
 .section.seven .photo-bg:nth-child(2) {
     background: var(--secondary);
-    margin-top: -19rem;
+    margin-top: -18rem;
 }
 .section.seven .photo-bg:nth-child(3) {
     background: var(--primary);
-    margin-top: -19rem;
+    margin-top: -18rem;
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
@@ -1106,13 +1119,16 @@ input {
 .section.seven .svg-container svg {
     fill: currentColor;
     color: var(--dark);
-    margin-top: 6rem;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
 }
 
 /* PANEL TRAPING */
 .sticky-container {
     height: 300vh;
     position: relative;
+    margin-bottom: -20px;
+    z-index: 2;
 }
 
 .sticky-element {
@@ -1142,27 +1158,27 @@ input {
     align-content: center;
     transform: translateY(100%);
     /* transition: transform 0.6s ease-in-out; */
-    z-index: 1;
+    z-index: 2;
 }
 
 .panel.revealed {
     transform: translateY(0%);
-    z-index: 2;
+    z-index: 3;
 }
 
 .panel.active {
     transform: translateY(0%);
-    z-index: 3;
+    z-index: 4;
 }
 
 .panel.upcoming {
     transform: translateY(100%);
-    z-index: 1;
+    z-index: 2;
 }
 
 .panel.is-exiting-up {
     transform: translateY(100%);
-    z-index: 4;
+    z-index: 5;
 }
 
 .panel-title .photo img {
@@ -1280,6 +1296,24 @@ input {
     padding: 0.5rem;
 }
 
+/* SECTION EIGHT */
+
+/* FOOTER */
+.sticky-footer {
+    position: sticky;
+    bottom: 0;
+    height: 15rem;
+    background: var(--dark);
+    color: white;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
 /* Initial hidden state for elements */
 .section.two .section-title > * {
     opacity: 0;
@@ -1302,7 +1336,6 @@ input {
 
 .three {
     background: var(--primary);
-    border-radius: 0 0 25px 25px;
 }
 
 .four {
@@ -1325,11 +1358,19 @@ input {
     background: var(--light);
 }
 
+.eight {
+    background: var(--light);
+    z-index: 50;
+    border-radius: 25px 25px 25px 25px;
+    position: relative;
+    margin-bottom: -40px;
+}
+
 .filler {
     position: relative;
     background: var(--tertiary);
     border-radius: 0 0 25px 25px;
-    z-index: 4;
+    z-index: 5;
     height: 50px;
     margin-bottom: -40px;
 }
@@ -1338,7 +1379,7 @@ input {
     position: relative;
     background: var(--secondary);
     border-radius: 0 0 25px 25px;
-    z-index: 3;
+    z-index: 4;
     height: 50px;
     margin-bottom: -20px;
     transition: margin-bottom 1.5s ease;
@@ -1348,13 +1389,40 @@ input {
     position: relative;
     background: var(--primary);
     border-radius: 0 0 25px 25px;
-    z-index: 4;
+    z-index: 5;
     height: 50px;
     margin-bottom: -40px;
 }
 
 .filler2.active {
     margin-bottom: -99vh;
+}
+
+.filler4 {
+    position: relative;
+    background: var(--primary);
+    border-radius: 0 0 25px 25px;
+    z-index: 5;
+    height: 50px;
+    margin-bottom: -40px;
+}
+
+.filler5 {
+    position: relative;
+    background: var(--secondary);
+    border-radius: 0 0 25px 25px;
+    z-index: 4;
+    height: 50px;
+    margin-bottom: -40px;   
+}
+
+.filler6 {
+    position: relative;
+    background: var(--tertiary);
+    border-radius: 0 0 25px 25px;
+    z-index: 3;
+    height: 50px;
+    margin-bottom: -40px;
 }
 
 /* PLACEHOLDER  */

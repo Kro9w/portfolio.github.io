@@ -322,3 +322,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 }); // End DOMContentLoaded
+
+document.addEventListener("DOMContentLoaded", () => {
+    const textBoxes = document.querySelectorAll(".section.five .text-box");
+
+    const observerOptions = {
+        root: null, // Use the viewport as the root
+        rootMargin: "0px", // No margin
+        threshold: 1, // Trigger when 50% of the element is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active"); // Add the active class
+            } else {
+                entry.target.classList.remove("active"); // Remove the active class
+            }
+        });
+    }, observerOptions);
+
+    textBoxes.forEach((box) => observer.observe(box));
+});
