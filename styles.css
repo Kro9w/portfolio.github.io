@@ -356,13 +356,20 @@ input {
     position: relative;
 }
 
+.cards img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
 #s1:checked~.cards #slide4,
 #s2:checked~.cards #slide5,
 #s3:checked~.cards #slide1,
 #s4:checked~.cards #slide2,
 #s5:checked~.cards #slide3 {
     transform: translate3d(0%, 110%, -100px);
-    filter: blur(6px);
+    filter: blur(12px) opacity(90%);
 }
 
 #s1:checked~.cards #slide5,
@@ -371,7 +378,7 @@ input {
 #s4:checked~.cards #slide3,
 #s5:checked~.cards #slide4 {
     transform: translate3d(0%, 55%, -50px);
-    filter: blur(4px);
+    filter: blur(6px);
 }
 
 #s1:checked~.cards #slide1,
@@ -389,7 +396,7 @@ input {
 #s4:checked~.cards #slide5,
 #s5:checked~.cards #slide1 {
     transform: translate3d(0%, -55%, -50px);
-    filter: blur(4px);
+    filter: blur(6px);
 }
 
 #s1:checked~.cards #slide3,
@@ -398,10 +405,10 @@ input {
 #s4:checked~.cards #slide1,
 #s5:checked~.cards #slide2 {
     transform: translate3d(0%, -110%, -100px);
-    filter: blur(6px);
+    filter: blur(12px) opacity(90%);
 }
 
-/* #s1:checked~.cards #slide1:hover .content,
+#s1:checked~.cards #slide1:hover .content,
 #s2:checked~.cards #slide2:hover .content,
 #s3:checked~.cards #slide3:hover .content,
 #s4:checked~.cards #slide4:hover .content,
@@ -410,7 +417,7 @@ input {
     transition-delay: 0.3s;
 }
 
-#s1:checked~.cards #slide1:hover .picture-top,
+/* #s1:checked~.cards #slide1:hover .picture-top,
 #s2:checked~.cards #slide2:hover .picture-top,
 #s3:checked~.cards #slide3:hover .picture-top,
 #s4:checked~.cards #slide4:hover .picture-top,
@@ -454,7 +461,6 @@ input {
     opacity: calc(0);
     transition-delay: 0.3s;
 } */
-
   
 .content {
     width: 100%;
@@ -473,14 +479,9 @@ input {
     border-radius: 20px;
     overflow: hidden;
 }
-  
-.front {
-    background-color: var(--light);
-}
 
 .back {
     background-color: var(--light);
-    opacity: 40%;
     width: 100%;
     height: 100%;
     justify-content: center;
@@ -491,7 +492,233 @@ input {
 
 .front {
     transform: rotateY(180deg);
-    color: white;
+}
+
+/* Slideshow container */
+#slide1 .slideshow {
+    position: relative;
+    width: 100%;
+    height: 120%;
+    scale: 130%;
+    overflow: hidden;
+}
+
+/* Slideshow images container */
+#slide1 .slideshow-images {
+    display: flex;
+    width: 400%; /* Adjust based on the number of images */
+    height: 100%;
+    animation: wipeEffect 8s infinite; /* Animation for the wipe effect */
+}
+
+/* Individual images */
+#slide1 .slideshow-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0px;
+}
+
+/* Keyframes for the wipe effect */
+@keyframes wipeEffect {
+    0% {
+        transform: translateX(0%);
+    }
+    25% {
+        transform: translateX(-50%);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    75% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/* Slideshow container for slide 2 */
+#slide2 .slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 20px; /* Match the card's border radius */
+}
+
+/* Slideshow images container for slide 2 */
+#slide2 .slideshow-images {
+    display: flex;
+    width: 300%; /* Adjust based on the number of images (100% * number of images) */
+    height: 100%;
+    animation: wipeEffectSlide2 11s infinite; /* Animation for the wipe effect */
+}
+
+/* Individual images for slide 2 */
+#slide2 .slideshow-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0px;
+}
+
+/* Keyframes for the wipe effect in slide 2 */
+@keyframes wipeEffectSlide2 {
+    0% {
+        transform: translateX(0%); /* Image 1 */
+    }
+    20% {
+        transform: translateX(-33.33%); /* Image 2 */
+    }
+    40% {
+        transform: translateX(-66.66%); /* Image 3 */
+    }
+    60% {
+        transform: translateX(-33.33%); /* Back to Image 2 */
+    }
+    80% {
+        transform: translateX(0%); /* Back to Image 1 */
+    }
+    100% {
+        transform: translateX(0%); /* Loop back to Image 1 */
+    }
+}
+
+.artworks-link {
+    position: absolute;
+    top: 90%;
+    text-align: center;
+    z-index: 100;
+    background-color: var(--primary);
+    width: 100%;
+    height: 10%;
+}
+
+/* Link styling */
+.artworks-link a {
+    font-family: var(--font-title2);
+    font-size: 1.3rem;
+    color: var(--light);
+    text-decoration: none;
+}
+
+#slide2 .artworks-link {
+    background-color: var(--secondary);
+}
+
+#slide1 .front{
+    background-color: var(--primary);
+}
+
+#slide2 .front{
+    background-color: var(--secondary);
+}
+
+#slide3 .front {
+    background-color: var(--tertiary);
+    position: relative;
+    overflow: hidden;
+}
+
+#slide3 .front a svg {
+    width: 220px;
+    height: 220px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 1s ease-in-out; /* Keep transition */
+}
+
+#slide3 .front a .github-icon {
+    fill: var(--light);
+    z-index: 3;
+}
+
+#slide3 .front a .github-icon2 {
+    fill: var(--primary);
+    z-index: 2;
+}
+
+#slide3 .front a .github-icon3 {
+    fill: var(--secondary);
+    z-index: 1;
+}
+
+#s3:checked ~ .cards #slide3 .front a:nth-child(1) .github-icon {
+    transform: translate(-50%, calc(-50% - 10px));
+}
+
+#s3:checked ~ .cards #slide3 .front a:nth-child(2) .github-icon2 {
+    transform: translate(-50%, -50%);
+}
+
+#s3:checked ~ .cards #slide3 .front a:nth-child(3) .github-icon3 {
+    transform: translate(-50%, calc(-50% + 10px));
+}
+
+#slide4 .front{
+    background-color: var(--dark);
+}
+
+#slide4 .front a img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transform: scale(0.62); /* Start at 62% scale */
+    transition: transform 1.4s ease; /* Smooth transition for scaling */
+}
+
+/* Specific scales for each nth-child when slide 4 is selected */
+#s4:checked ~ .cards #slide4 .front a:nth-child(1) img {
+    transform: scale(0.9); /* Final scale for nth-child(1) */
+}
+
+#s4:checked ~ .cards #slide4 .front a:nth-child(2) img {
+    transform: scale(0.81); /* Final scale for nth-child(2) */
+}
+
+#s4:checked ~ .cards #slide4 .front a:nth-child(3) img {
+    transform: scale(0.72); /* Final scale for nth-child(3) */
+}
+
+#s4:checked ~ .cards #slide4 .front a:nth-child(4) img {
+    transform: scale(0.62); /* Final scale for nth-child(4) */
+}
+
+#slide5 .front{
+    background-color: var(--dark);
+}
+
+/* Default state for all images in slide 5 */
+#slide5 .front a img {
+    position: absolute;
+    object-fit: cover;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    transform: scale(0.75); /* Start at 62% scale */
+    transform-origin: bottom left;
+    margin: 20px;
+    transition: transform 1.8s ease;
+}
+
+/* Specific scales for each nth-child when slide 5 is selected */
+#s5:checked ~ .cards #slide5 .front a:nth-child(1) img {
+    transform: scale(0.99); /* Final scale for the first image */
+}
+
+#s5:checked ~ .cards #slide5 .front a:nth-child(2) img {
+    transform: scale(0.91); /* Final scale for the second image */
+}
+
+#s5:checked ~ .cards #slide5 .front a:nth-child(3) img {
+    transform: scale(0.83); /* Final scale for the third image */
+}
+
+#s5:checked ~ .cards #slide5 .front a:nth-child(4) img {
+    transform: scale(0.75); /* Final scale for the fourth image */
 }
 
 /* Section Four */
